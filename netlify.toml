@@ -1,0 +1,4 @@
+[template.environment]
+  SHORTCUTS_NAME = "Your name"
+  SHORTCUTS_TWITTER = "Your Twitter URL"
+  SHORTCUTS_YOUTUBE = "Your YouTube URL"
