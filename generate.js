@@ -17,7 +17,9 @@ const data = {
 
 const output = handlebars.compile(template)(data);
 
-fs.writeFile("index.html", output, (err) => {
+fs.mkdirSync("public");
+
+fs.writeFile("public/index.html", output, (err) => {
   if (err) return console.log(err);
 
   console.log("Generated output");
