@@ -22,9 +22,9 @@ const data = {
 
 const output = handlebars.compile(template)(data);
 
-fs.mkdirSync("dist");
+fs.mkdirSync("public");
 
-fs.writeFile("dist/index.html", output, (err) => {
+fs.writeFile("public/index.html", output, (err) => {
   if (err) return console.log(err);
 
   console.log("Generated output");

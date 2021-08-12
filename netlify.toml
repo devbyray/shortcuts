@@ -7,3 +7,6 @@
   SHORTCUTS_LINKEDIN = "Your LinkedIn url"
   SHORTCUTS_DEVTO = "Your Dev.to username"
   SHORTCUTS_MEDIUM = "Your Medium url"
+[build]
+  command   = "npm run build"
+  publish   = "public"
