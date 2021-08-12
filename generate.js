@@ -46,7 +46,9 @@ const data = {
 
 const output = handlebars.compile(template)(data);
 
-fs.mkdirSync("public");
+if (!fs.existsSync("public")) {
+  fs.mkdirSync("public");
+}
 
 fs.writeFile("public/index.html", output, (err) => {
   if (err) return console.log(err);

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "node generate.js"
+    "build": "node generate.js && npx tailwindcss --postcss -o ./public/tailwind.css"
   },
   "keywords": [],
   "author": "Jamie Barton",
@@ -13,6 +13,8 @@
     "handlebars": "4.7.7"
   },
   "devDependencies": {
-    "dotenv": "10.0.0"
+    "dotenv": "10.0.0",
+    "postcss": "8.3.6",
+    "tailwindcss": "2.2.7"
   }
 }
