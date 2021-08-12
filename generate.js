@@ -11,8 +11,13 @@ const template = fs.readFileSync(
 
 const data = {
   name: process.env.SHORTCUTS_NAME,
-  twitter: process.env.SHORTCUTS_TWITTER,
-  youtube: process.env.SHORTCUTS_YOUTUBE,
+  personalSiteUrl: process.env.SHORTCUTS_SITE,
+  twitterUsername: process.env.SHORTCUTS_TWITTER,
+  youTubeChannelUrl: process.env.SHORTCUTS_YOUTUBE,
+  gitHubUsername: process.env.SHORTCUTS_GITHUB,
+  linkedInUrl: process.env.SHORTCUTS_LINKEDIN,
+  devToUsername: process.env.SHORTCUTS_DEVTO,
+  mediumUrl: process.env.SHORTCUTS_MEDIUM,
 };
 
 const output = handlebars.compile(template)(data);

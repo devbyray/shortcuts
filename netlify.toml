@@ -1,4 +1,9 @@
 [template.environment]
   SHORTCUTS_NAME = "Your name"
-  SHORTCUTS_TWITTER = "Your Twitter URL"
+  SHORTCUTS_SITE = "Your personal site"
+  SHORTCUTS_TWITTER = "Your Twitter username"
   SHORTCUTS_YOUTUBE = "Your YouTube URL"
+  SHORTCUTS_GITHUB = "Your GitHub username"
+  SHORTCUTS_LINKEDIN = "Your LinkedIn url"
+  SHORTCUTS_DEVTO = "Your Dev.to username"
+  SHORTCUTS_MEDIUM = "Your Medium url"
