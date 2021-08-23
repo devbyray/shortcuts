@@ -8,12 +8,43 @@
       href="tailwind.css"
       rel="stylesheet"
     />
+    <style>
+      h1 {
+        color: #ffc600;
+        font-size: 3rem;
+        margin-bottom: 2rem;
+      }
+      .blog__wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .blog__item {
+        background: #fff;
+        padding: 1rem;
+        box-shadow: 3px 7px 20px 0px rgb(0 0 0 / 20%);
+        margin-bottom: 2rem;
+        border-radius: 5px;
+      }
+      .blog__item h2 {
+        font-size: 2rem;
+      }
+
+      .blog__item a {
+        background-color: #ffc600;
+        color: #000;
+        display: inline-block;
+        padding: 0.5rem;
+        margin: 0.5rem 0;
+        border-radius: 5px;
+      }
+    </style>
   </head>
   <body>
     <main
-      class="relative flex flex-col w-screen min-h-screen overflow-x-hidden bg-purple-200 items-center"
+      class="relative flex flex-col w-screen min-h-screen overflow-x-hidden items-center"
     >
-      <div class="mt-10 sm:mt-52">
+      <div class="mt-10 sm:mt-52 w-96">
 
         <h1 class="text-4xl mb-3">{{name}}</h1>
         <p class="mb-5">You can find me:</p>
@@ -21,7 +52,7 @@
         <ul class="left-0">
           {{#if personalSiteUrl}}
             <li
-              class="flex items-center rounded-2xl border border-purple-500 p-2 mb-2 hover:bg-purple-300"
+              class="flex items-center rounded-2xl border border-yellow-500 p-2 mb-2 hover:bg-yellow-300"
             >
               <svg
                 class="h-4 mr-2"
@@ -40,7 +71,7 @@
           {{/if}}
           {{#if twitterUsername}}
             <li
-              class="flex items-center rounded-2xl border border-purple-500 p-2 mb-2 hover:bg-purple-300"
+              class="flex items-center rounded-2xl border border-yellow-500 p-2 mb-2 hover:bg-yellow-300"
             >
               <svg
                 class="h-4 mr-2"
@@ -59,7 +90,7 @@
           {{/if}}
           {{#if youTubeChannelUrl}}
             <li
-              class="flex items-center rounded-2xl border border-purple-500 p-2 mb-2 hover:bg-purple-300"
+              class="flex items-center rounded-2xl border border-yellow-500 p-2 mb-2 hover:bg-yellow-300"
             >
               <svg
                 class="h-4 mr-2"
@@ -78,7 +109,7 @@
           {{/if}}
           {{#if gitHubUsername}}
             <li
-              class="flex items-center rounded-2xl border border-purple-500 p-2 mb-2 hover:bg-purple-300"
+              class="flex items-center rounded-2xl border border-yellow-500 p-2 mb-2 hover:bg-yellow-300"
             >
               <svg
                 class="h-4 mr-2"
@@ -97,7 +128,7 @@
           {{/if}}
           {{#if linkedInUrl}}
             <li
-              class="flex items-center rounded-2xl border border-purple-500 p-2 mb-2 hover:bg-purple-300"
+              class="flex items-center rounded-2xl border border-yellow-500 p-2 mb-2 hover:bg-yellow-300"
             >
               <svg
                 class="h-4 mr-2"
@@ -116,7 +147,7 @@
           {{/if}}
           {{#if devToUsername}}
             <li
-              class="flex items-center rounded-2xl border border-purple-500 p-2 mb-2 hover:bg-purple-300"
+              class="flex items-center rounded-2xl border border-yellow-500 p-2 mb-2 hover:bg-yellow-300"
             >
               <svg
                 class="h-4 mr-2"
@@ -135,7 +166,7 @@
           {{/if}}
           {{#if mediumUrl}}
             <li
-              class="flex items-center rounded-2xl border border-purple-500 p-2 mb-2 hover:bg-purple-300"
+              class="flex items-center rounded-2xl border border-yellow-500 p-2 mb-2 hover:bg-yellow-300"
             >
               <svg
                 class="h-4 mr-2"
@@ -155,5 +186,10 @@
         </ul>
       </div>
     </main>
+    <div class="flex flex-col min-h-screen overflow-x-hidden items-center">
+      <h1>Recent blogs</h1>
+      <div id="blog" class="max-w-xl"></div>
+    </div>
+    <script src="./app.js"></script>
   </body>
 </html>
