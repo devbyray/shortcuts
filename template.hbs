@@ -42,9 +42,9 @@
   </head>
   <body>
     <main
-      class="relative flex flex-col w-screen min-h-screen overflow-x-hidden items-center"
+      class="relative flex flex-col w-screen overflow-x-hidden items-center"
     >
-      <div class="mt-10 sm:mt-52 w-96">
+      <div class="mt-10 mb-10 sm:mt-52 w-96">
 
         <h1 class="text-4xl mb-3">{{name}}</h1>
         <p class="mb-5">You can find me:</p>
@@ -190,6 +190,78 @@
       <h1>Recent blogs</h1>
       <div id="blog" class="max-w-xl"></div>
     </div>
-    <script src="./app.js"></script>
+    <script>
+      (async () => {
+        const blog = document.querySelector('#blog')
+        console.log('blog: ', blog)
+
+        const headers = {
+            'Content-Type': 'application/json',
+            'Authorization': 'fb2b8524-2d63-40ed-a153-711cd91e35ec'
+        }
+
+        const query = `
+        query {
+            user(username: "devbyrayray") {
+              publication {
+                posts(page: 0) {
+                  slug
+                  title
+                  brief
+                  coverImage
+                  replyCount
+                  totalReactions
+                }
+              }
+            }
+          }      
+        `;
+
+        fetch('https://api.hashnode.com', {
+            method: 'POST',
+            headers,
+            body: JSON.stringify({ query })
+        }).then(res => res.json())
+            .then(res => generateBlogList(res, blog))
+    })();
+
+    function generateBlogList(json, container) {
+        if (!json || !container) return
+        console.log("🚀 ~ generateBlogList ~ json", json)
+        console.dir(container)
+
+        const { data: { user: { publication: { posts } } }
+        } = json
+
+        posts?.forEach(element => {
+            console.log('element: ', element)
+        })
+        posts?.forEach(element => {
+            const wrapper = document.createElement('div')
+            wrapper.classList.add('blog__item')
+
+            const image = document.createElement('img')
+            image.loading = 'lazy'
+            image.src = element?.coverImage
+
+            const title = document.createElement('h2')
+            title.innerText = element?.title
+
+            const desc = document.createElement('p')
+            desc.innerText = element?.brief
+
+            const link = document.createElement('a')
+            link.href = `https://hasnode.byrayray.dev/${element?.slug}`
+            link.innerText = 'Read more...'
+            link.target = "blank"
+
+            wrapper.appendChild(image)
+            wrapper.appendChild(title)
+            wrapper.appendChild(desc)
+            wrapper.appendChild(link)
+            container.appendChild(wrapper)
+        });
+    }
+    </script>
   </body>
 </html>
